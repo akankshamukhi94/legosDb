@@ -29,8 +29,8 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // Initialize the LEGO data before setting up routes
-legoData.initialize()
-    .then(() => {
+legoData.initialize();
+    
         // Home route
         app.get("/", (req, res) => {
             res.render("home", { page: '/' });
@@ -196,10 +196,7 @@ legoData.initialize()
                 page: req.originalUrl
             });
         });
-    })
-    .catch(err => {
-        console.error("Failed to initialize LEGO data:", err);
-    });
+    
 
 // Start the server
 app.listen(PORT, () => {
