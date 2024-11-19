@@ -1,0 +1,58 @@
+<nav class="border-b-4 border-red-600 bg-zinc-900 p-4">
+    <div class="container mx-auto flex justify-between items-center">
+        <!-- Logo -->
+        <a href="/" class="text-2xl font-mono font-bold text-white hover:text-red-500 transition-colors">
+            LEGO Collection
+        </a>
+        
+        <!-- Desktop Menu -->
+        <div class="hidden lg:flex space-x-8">
+            <a href="/lego/sets" 
+               class="font-mono text-white hover:text-red-500 transition-colors <%= page === '/lego/sets' ? 'text-red-500' : '' %>">
+                View Collection
+            </a>
+            <a href="/lego/addSet" 
+               class="font-mono text-white hover:text-red-500 transition-colors <%= page === '/lego/addSet' ? 'text-red-500' : '' %>">
+                Add to Collection
+            </a>
+            <a href="/about" 
+               class="font-mono text-white hover:text-red-500 transition-colors <%= page === '/about' ? 'text-red-500' : '' %>">
+                About
+            </a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button class="lg:hidden text-white" id="menu-toggle">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden">
+        <div class="container mx-auto mt-4 border-t-2 border-red-600 pt-4">
+            <a href="/lego/sets" 
+               class="block font-mono text-white hover:text-red-500 transition-colors py-2 <%= page === '/lego/sets' ? 'text-red-500' : '' %>">
+                View Collection
+            </a>
+            <a href="/lego/addSet" 
+               class="block font-mono text-white hover:text-red-500 transition-colors py-2 <%= page === '/lego/addSet' ? 'text-red-500' : '' %>">
+                Add to Collection
+            </a>
+            <a href="/about" 
+               class="block font-mono text-white hover:text-red-500 transition-colors py-2 <%= page === '/about' ? 'text-red-500' : '' %>">
+                About
+            </a>
+        </div>
+    </div>
+</nav>
+
+<script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+</script>
